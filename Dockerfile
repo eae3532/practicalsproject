@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-LABEL maintainer = "https://github.com/sliggady/EAE3532-PracticalsProject.git"
+LABEL maintainer = "https://github.com/eae3532/practicalsproject"
 
 # python set up , check py 2
 RUN apt-get update \
