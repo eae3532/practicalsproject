@@ -11,8 +11,8 @@ RUN apt-get update \
 
 # install libraries, remove unused demo libs
 RUN pip install pip -U \
-    && pip install jupyter numpy scipy pandas matplotlib \
-	&& pip install cartopy bqplot vega jupyter_contrib_nbextensions\
+    && pip install jupyter numpy scipy pandas matplotlib ipywidgets\
+	&& pip install bqplot vega jupyter_contrib_nbextensions\
     && rm -r /root/.cache/pip 
 
 # set up the folders, script this out
@@ -25,9 +25,8 @@ COPY docs/practicals /EAE3532/Practicals
 COPY docs/tutorials /EAE3532/Tutorials
 COPY docs/help /EAE3532/Help
 
-# enable snippets
-WORKDIR /root/.jupyter 
-RUN snippets nbextension enable
+# enable widgets (add snippets)
+RUN jupyter nbextension enable --py widgetsnbextension
 
 WORKDIR /EAE3532
 
