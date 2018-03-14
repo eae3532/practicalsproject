@@ -1,4 +1,4 @@
-# EAE3532 Physics for the Solid Earth - Practicals Project
+# EAE3532 Physics of the Solid Earth - Practicals Project
 
 This is the source repository for the EAE3532 practicals project.
 
