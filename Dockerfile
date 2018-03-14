@@ -9,10 +9,11 @@ RUN apt-get update \
     && apt-get -y clean  \
     && rm -rf /var/lib/apt/lists/*
 
-# install libraries
+# install libraries, remove unused demo libs
 RUN pip install pip -U \
     && pip install jupyter numpy scipy pandas matplotlib \
-    && rm -r /root/.cache/pip
+	&& pip install cartopy bqplot vega jupyter_contrib_nbextensions\
+    && rm -r /root/.cache/pip 
 
 # set up the folders, script this out
 RUN mkdir /EAE3532 && mkdir /EAE3532/Examples && mkdir /EAE3532/Practicals
