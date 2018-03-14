@@ -7,6 +7,7 @@ This is the source repository for the EAE3532 practicals project.
 The prototype and example notebooks from planning have been placed in an example folder structure.  
 A practical from ESC3332 has been converted to a notebook in the Practicals folder.
 Copy and paste token identification is required at this stage.
+See DEV/Backlog on the project Drive for a list of development tasks.
 
 
 ### Running from Docker
@@ -20,6 +21,6 @@ __http://dockervirtualhostIP:8888__
   
 where the docker virtualhostIP appears at the top of the docker terminal.  
   
-eg. __http://http://192.168.99.100:8888__  
+eg. __http://192.168.99.100:8888__  
 
 Copy and paste the token from the terminal to Jupyter load screen.
