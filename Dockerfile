@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 LABEL maintainer = "https://github.com/eae3532/practicalsproject"
 
-# python set up , check py 2
+# python set up , check py 2 
 RUN apt-get update \
     && apt-get install -y python-pip build-essential \
     && apt-get -y autoremove \
@@ -24,6 +24,10 @@ COPY docs/examples /EAE3532/Examples
 COPY docs/practicals /EAE3532/Practicals
 COPY docs/tutorials /EAE3532/Tutorials
 COPY docs/help /EAE3532/Help
+
+# enable snippets
+WORKDIR /root/.jupyter 
+RUN snippets nbextension enable
 
 WORKDIR /EAE3532
 
