@@ -9,7 +9,7 @@ RUN apt-get update \
     && apt-get -y clean  \
     && rm -rf /var/lib/apt/lists/*
 
-# install libraries, remove unused demo libs
+# install libraries, cartopy removed see Backlog issues
 RUN pip install pip -U \
     && pip install jupyter numpy scipy pandas matplotlib ipywidgets\
 	&& pip install bqplot vega jupyter_contrib_nbextensions\
@@ -25,8 +25,12 @@ COPY docs/practicals /EAE3532/Practicals
 COPY docs/tutorials /EAE3532/Tutorials
 COPY docs/help /EAE3532/Help
 
-# enable widgets (add snippets)
+# copies nbextensions JS and CSS files to local jupyter directories
+RUN jupyter contrib nbextension install --user
+
+# enable widgets
 RUN jupyter nbextension enable --py widgetsnbextension
+
 
 WORKDIR /EAE3532
 
