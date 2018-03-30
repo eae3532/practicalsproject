@@ -31,6 +31,15 @@ RUN jupyter contrib nbextension install --user
 # enable widgets
 RUN jupyter nbextension enable --py widgetsnbextension
 
+# Add a notebook profile
+# DEV changes CMD ?
+RUN mkdir -p -m 700 /root/.jupyter/ && \
+echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py && \
+echo "c.NotebookApp.password = ''" >> /root/.jupyter/jupyter_notebook_config.py && \
+echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py 
+
+# expose notebook port 
+EXPOSE 8888 
 
 WORKDIR /EAE3532
 
