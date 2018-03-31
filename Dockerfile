@@ -17,7 +17,7 @@ RUN pip install pip -U \
 
 # set up the folders, script this out
 RUN mkdir /EAE3532 && mkdir /EAE3532/Examples && mkdir /EAE3532/Practicals
-RUN mkdir /EAE3532/Tutorials && mkdir /EAE3532/Help
+RUN mkdir /EAE3532/Tutorials && mkdir /EAE3532/Help  && mkdir /EAE3532/Saved_Practicals
 
 # copy in local notebooks, script as well
 COPY docs/examples /EAE3532/Examples
@@ -43,4 +43,4 @@ EXPOSE 8888
 
 WORKDIR /EAE3532
 
-CMD jupyter notebook --ip="*" --no-browser --allow-root
+CMD jupyter notebook --no-browser --allow-root
