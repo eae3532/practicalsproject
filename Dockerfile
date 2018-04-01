@@ -15,15 +15,11 @@ RUN pip install pip -U \
 	&& pip install bqplot vega jupyter_contrib_nbextensions\
     && rm -r /root/.cache/pip 
 
-# set up the folders, script this out
-RUN mkdir /EAE3532 && mkdir /EAE3532/Examples && mkdir /EAE3532/Practicals
-RUN mkdir /EAE3532/Tutorials && mkdir /EAE3532/Help  && mkdir /EAE3532/Saved_Practicals
+# set up the workspace folder
+RUN mkdir /workspace 
 
-# copy in local notebooks, script as well
-COPY docs/examples /EAE3532/Examples
-COPY docs/practicals /EAE3532/Practicals
-COPY docs/tutorials /EAE3532/Tutorials
-COPY docs/help /EAE3532/Help
+# copy in local files
+COPY docs /workspace
 
 # copies nbextensions JS and CSS files to local jupyter directories
 RUN jupyter contrib nbextension install --user
@@ -41,6 +37,6 @@ echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py
 # expose notebook port 
 EXPOSE 8888 
 
-WORKDIR /EAE3532
+WORKDIR /workspace
 
 CMD jupyter notebook --no-browser --allow-root
