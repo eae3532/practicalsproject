@@ -25,7 +25,8 @@ COPY docs /workspace
 RUN jupyter contrib nbextension install --user
 
 # enable widgets
-RUN jupyter nbextension enable --py widgetsnbextension
+RUN jupyter nbextension enable --py widgetsnbextension 
+	
 
 # Add a notebook config settings
 RUN mkdir -p -m 700 /root/.jupyter/ && \
