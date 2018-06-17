@@ -1,0 +1,14 @@
+name: pracs1
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - basemap=1.1.0
+  - cartopy=0.14.3
+  - netcdf4=1.4.0
+  - matplotlib=2.0.2
+  - numpy=1.11.3
+  - pandas=0.23.1
+  - python=3.6.5
+  - scipy=1.1.0
+

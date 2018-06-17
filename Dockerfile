@@ -1,18 +1,23 @@
 FROM ubuntu:16.04
 
 LABEL maintainer = "https://github.com/eae3532/practicalsproject"
-
-# python set up , check py 2 
+ 
 RUN apt-get update \
     && apt-get install -y python-pip build-essential \
+	&& apt-get install python-matplotlib \
+	&& apt-get install python-mpltoolkits.basemap \
+#	&& apt-get install libgeos-3.X.X \
+#	&& apt-get install libgeos-dev \  
     && apt-get -y autoremove \
     && apt-get -y clean  \
     && rm -rf /var/lib/apt/lists/*
 
-# install libraries, cartopy removed see Backlog issues
-RUN pip install pip -U \
-    && pip install jupyter numpy scipy pandas matplotlib ipywidgets\
-	&& pip install bqplot vega jupyter_contrib_nbextensions\
+# pip upgrade removed see ISSUES
+
+
+RUN pip install jupyter numpy scipy pandas ipywidgets \
+	&& pip install jupyter_contrib_nbextensions netCDF4 \
+#	&& pip install --user https://github.com/matplotlib/basemap/archive/master.zip \
     && rm -r /root/.cache/pip 
 
 # set up the workspace folder

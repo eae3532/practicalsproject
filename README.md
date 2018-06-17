@@ -4,12 +4,14 @@ This is the source repository for the EAE3532 practicals project.
 
 ### Current Development
 
-Token authentication has been disabled.  
-Converting Practicals 3 and 4 to notebooks.  
-See DEV/Backlog on the project Drive for a list of development tasks.
+Creating and testing Docker image based from the anaconda3 distribution.  
+Creating and testing conda environment files.  
+Creating and testing Notebook submit functionality.  
+  
+See DEV/Backlog2 on the project Drive for a list of development tasks.
 
 
-### Running from Docker
+### Running from Docker Terminal or Kitematic
 
 __docker run -it -p 8888:8888 eae3532/practicals__  
   

@@ -1,0 +1,40 @@
+FROM continuumio/anaconda3
+
+LABEL maintainer = "https://github.com/eae3532/practicalsproject"
+
+
+# set up the workspace folder
+RUN mkdir /workspace 
+
+
+# copy in local files
+COPY docs /workspace
+COPY environment.yml /opt/conda
+
+# CONDA ENVIRONMENT SET-UP
+WORKDIR /opt/conda
+RUN conda config --add channels conda-forge \
+    && conda env create -n eae3532 -f environment.yml \
+    && rm -rf /opt/conda/pkgs/*
+
+# Activate environment
+
+### nbextensions and anaconda
+# copies nbextensions JS and CSS files to local jupyter directories
+# RUN jupyter contrib nbextension install --user
+
+# enable widgets
+# RUN jupyter nbextension enable --py widgetsnbextension
+
+# Add notebook config settings
+RUN mkdir -p -m 700 /root/.jupyter/ && \
+echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py && \
+echo "c.NotebookApp.password = ''" >> /root/.jupyter/jupyter_notebook_config.py && \
+echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py 
+
+
+WORKDIR /workspace
+
+
+EXPOSE 8888
+#CMD ["jupyter",  "notebook",  "--no-browser", "--allow-root"]
