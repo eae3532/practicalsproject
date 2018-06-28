@@ -33,15 +33,15 @@ __conda activate eae3532__
 
 Then install Jupyter and extensions into the activated environment with,  
 
-__conda install jupyter__
-__conda install -c conda-forge jupyter_contrib_nbextensions__
+__conda install jupyter__  
+__conda install -c conda-forge jupyter_contrib_nbextensions__  
 
 
 #### Enabling Extensions
 
 The nbextensions below are used in the notebooks and can be enabled from the dashboard interface or at the command line,  
   
-__jupyter nbextension enable snippets_menu/main__
-__jupyter nbextension enable hide_input/main__
-__jupyter nbextension enable equation-numbering/main__  
-__jupyter nbextension enable --py --sys-prefix widgetsnbextension__
+__jupyter nbextension enable snippets_menu/main__  
+__jupyter nbextension enable hide_input/main__  
+__jupyter nbextension enable equation-numbering/main__    
+__jupyter nbextension enable --py --sys-prefix widgetsnbextension__  
