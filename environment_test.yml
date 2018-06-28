@@ -1,6 +1,0 @@
-name: eae3532
-channels:
-  - defaults
-  - conda-forge
-dependencies:
-  - setuptools=39.2.0

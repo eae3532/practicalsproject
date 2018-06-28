@@ -4,7 +4,8 @@ channels:
   - conda-forge
 dependencies:
   - basemap=1.1.0
-  - cartopy=0.14.3
+  - cartopy=0.15.1
+  - ipywidgets=7.2.1
   - netcdf4=1.4.0
   - matplotlib=2.0.2
   - numpy=1.11.3

@@ -1,0 +1,53 @@
+FROM continuumio/anaconda3
+
+LABEL maintainer = "https://github.com/eae3532/practicalsproject"
+
+
+#### Make directories ####
+RUN mkdir /workspace 
+RUN mkdir /root/.jupyter
+RUN mkdir /root/.jupyter/custom
+
+
+#### Copy in local files ####
+COPY docs /workspace
+COPY environment.yml /opt/conda
+COPY custom.js /root/.jupyter/custom
+
+
+#### Conda Environment Set-up ####
+WORKDIR /opt/conda
+RUN conda config --add channels conda-forge \
+    && conda env create -n eae3532 -f environment.yml \
+    && rm -rf /opt/conda/pkgs/*
+
+	
+#### Activate environment ####
+ENV PATH /opt/conda/envs/eae3532/bin:$PATH
+ENV CONDA_DEFAULT_ENV eae3532
+ENV CONDA_PREFIX /opt/conda/envs/eae3532
+RUN /bin/bash -c "source activate eae3532"
+
+
+#### Install jupyter and extensions into the environment ####
+RUN conda install jupyter
+RUN	conda install -c conda-forge jupyter_contrib_nbextensions
+
+
+#### Enable nbextensions ####
+RUN jupyter nbextension enable snippets_menu/main
+RUN jupyter nbextension enable hide_input/main
+RUN jupyter nbextension enable equation-numbering/main
+RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension 
+
+
+#### Add notebook config settings ####
+RUN echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py && \
+echo "c.NotebookApp.password = ''" >> /root/.jupyter/jupyter_notebook_config.py && \
+echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py 
+
+
+WORKDIR /workspace
+
+EXPOSE 8888
+CMD ["jupyter", "notebook", "--no-browser", "--allow-root"]
