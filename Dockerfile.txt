@@ -38,7 +38,10 @@ RUN	conda install -c conda-forge jupyter_contrib_nbextensions
 RUN jupyter nbextension enable snippets_menu/main
 RUN jupyter nbextension enable hide_input/main
 RUN jupyter nbextension enable equation-numbering/main
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension 
+RUN jupyter nbextension enable init_cell/main  
+
+### Trust Notebooks with initialization cells to avoid pop-up ###
+RUN jupyter trust /workspace/SubmitSaveDemo.ipynb  
 
 
 #### Add notebook config settings ####

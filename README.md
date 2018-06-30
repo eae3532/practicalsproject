@@ -43,5 +43,13 @@ The nbextensions below are used in the notebooks and can be enabled from the das
   
 __jupyter nbextension enable snippets_menu/main__  
 __jupyter nbextension enable hide_input/main__  
-__jupyter nbextension enable equation-numbering/main__    
-__jupyter nbextension enable --py --sys-prefix widgetsnbextension__  
+__jupyter nbextension enable equation-numbering/main__      
+__jupyter nbextension enable init_cell/main__  
+
+### custom.js file
+
+Add this file locally to (from root or User)    
+
+__/.jupyter/custom/__ 
+
+<a href="http://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/JavaScript%20Notebook%20Extensions.html">Custom Docs</a>  
