@@ -41,7 +41,7 @@ RUN jupyter nbextension enable equation-numbering/main
 RUN jupyter nbextension enable init_cell/main  
 
 ### Trust Notebooks with initialization cells to avoid pop-up ###
-RUN jupyter trust /workspace/SubmitSaveDemo.ipynb  
+RUN jupyter trust /workspace/notebooks/SubmitSaveDemo.ipynb  
 
 
 #### Add notebook config settings ####
@@ -49,6 +49,8 @@ RUN echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py &
 echo "c.NotebookApp.password = ''" >> /root/.jupyter/jupyter_notebook_config.py && \
 echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py 
 
+#### Map a directory volume ####
+VOLUME /workspace/practicals
 
 WORKDIR /workspace
 
