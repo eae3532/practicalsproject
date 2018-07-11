@@ -7,11 +7,14 @@ This is the source repository for the EAE3532 practicals project.
 Main development tasks from last meeting have been completed.  
 See Backlog2 on project Drive.
 
+### Running from Kitematic  
+Search 'eae3532' and click create container.  
+Add local content into the __practicals__ folder via the Kitematic Volume Settings.  
+Click on the 'Open Browser' button in the Web Preview Pane.  
 
+### Running from Docker Terminal
 
-### Running from Docker Terminal or Kitematic
-
-__docker run -it -p 8888:8888 eae3532/practicals__  
+__docker run -it -p 8888:8888 -v path/to/local:/workspace/practicals eae3532/practicals__  
   
 This will pull the image from Docker Hub when run for the first time.  
 You can then open a browser at  
