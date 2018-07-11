@@ -4,11 +4,9 @@ This is the source repository for the EAE3532 practicals project.
 
 ### Current Development
 
-Creating and testing Docker image based from the anaconda3 distribution.  
-Creating and testing conda environment files.  
-Creating and testing Notebook submit and save functionality.  
-  
-See DEV/Backlog2 on the project Drive for a list of development tasks.
+Main development tasks from last meeting have been completed.  
+See Backlog2 on project Drive.
+
 
 
 ### Running from Docker Terminal or Kitematic
